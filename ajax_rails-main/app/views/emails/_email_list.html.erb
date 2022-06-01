@@ -8,7 +8,7 @@
   </thead>
 
   <tbody id="email_table_body">
-    <%emails.each.with_index do |email,i|%>
+    <%emails.order(id:'asc').each.with_index do |email,i|%>
       <% if i == 0%>
         <tr id='email-<%=email.id%>'>
           <th scope="row" class='<%= email_class(email) %>'><%=i + 1%></th>
@@ -16,7 +16,7 @@
           <td id="selected_mail" rowspan='<%= emails.size%>'></td>
         </tr>
       <%else%>
-        <tr id='email-<%=email.id%>' class='<% email_class(email) %>'>
+        <tr id='email-<%=email.id%>'%>
           <th class='<%= email_class(email) %>' scope="row"><%=i + 1%></th>
           <td class='<%= email_class(email) %>' ><%=link_to email.object, email_path(email), remote: true, class:email_class(email) %></td>
         </tr>

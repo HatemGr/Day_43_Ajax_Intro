@@ -1,1 +1,4 @@
 document.getElementById("email_table_body").insertAdjacentHTML("beforeend", "<%= j render 'add_email', email: @email %>");
+initialRowspan = parseInt(document.getElementById("selected_mail").getAttribute('rowspan'));
+document.getElementById("selected_mail").setAttribute('rowspan',`${initialRowspan + 1}`);
+

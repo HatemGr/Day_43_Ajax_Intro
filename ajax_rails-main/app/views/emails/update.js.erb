@@ -1,0 +1,15 @@
+job = "<%= @job %>"
+email_status = "<%= @email.read %>"
+console.log(job)
+console.log(email_status)
+if (job === "to_not_read") {
+  console.log(document.getElementById("email-<%=@email.id%>").querySelector("th").className)
+  document.getElementById("email-<%=@email.id%>").querySelector("th").className = 'link-dark  text-decoration-none table-warning fw-bold';
+  document.getElementById("email-<%=@email.id%>").querySelector("td").className = 'link-dark text-decoration-none table-warning fw-bold';
+  document.getElementById("selected_mail").querySelectorAll("input.btn-outline-primary").forEach(button => button.classList.toggle('collapse'));
+
+} else {
+  document.getElementById("email-<%=@email.id%>").querySelector("th").className = 'link-dark text-decoration-none fw-light';
+  document.getElementById("email-<%=@email.id%>").querySelector("td").className = 'link-dark text-decoration-none fw-light';
+  document.getElementById("selected_mail").querySelectorAll("input.btn-outline-primary").forEach(button => button.classList.toggle('collapse'));
+}

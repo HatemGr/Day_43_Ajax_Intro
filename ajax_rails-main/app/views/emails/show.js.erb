@@ -1,1 +1,4 @@
-document.getElementById("selected_mail").innerHTML = "<%= j render 'selected_email', email: @email %>"
+document.getElementById("selected_mail").innerHTML = "<%= j render 'selected_email', email: @email %>";
+document.getElementById("email-<%=@email.id%>").querySelector("th").className = 'link-dark text-decoration-none fw-light';
+document.getElementById("email-<%=@email.id%>").querySelector("td").className = 'link-dark text-decoration-none fw-light';
+document.getElementById("email-<%=@email.id%>").querySelector("td a").className = 'link-dark text-decoration-none fw-light';

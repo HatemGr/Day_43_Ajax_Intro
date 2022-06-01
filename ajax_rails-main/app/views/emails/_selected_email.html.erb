@@ -9,7 +9,13 @@
     </div>
 
     <div class="col-6">
-      <%= button_to 'Marquer comme non-lu', email_path(email), method: :put, class:'btn btn-outline-primary', remote: true %>
+      <%if email.read %>
+      <%= button_to 'Marquer comme non-lu', email_path(email), params: {job: "to_not_read"} ,method: :put, class:'btn btn-outline-primary', remote: true %>
+      <%= button_to 'Marquer comme lu', email_path(email), params: {job: "to_read"} ,method: :put, class:'btn btn-outline-primary collapse', remote: true %>
+      <%else%>
+      <%= button_to 'Marquer comme non-lu', email_path(email), params: {job: "to_not_read"} ,method: :put, class:'btn btn-outline-primary collapse', remote: true %>
+      <%= button_to 'Marquer comme lu', email_path(email), params: {job: "to_read"} ,method: :put, class:'btn btn-outline-primary', remote: true %>
+      <%end%>
     </div>
   </div>
 </div>
