@@ -1,0 +1,12 @@
+alert("le fichier JS est exécuté!");
+status = <%= @task.status %>
+
+if (status === "true") {
+// passage de uncompleted à completed
+document.getElementById("task-list-<%= @task.id %>").remove();
+document.querySelector("div.completed ul#task-list-<%= @task.category.title %>").insertAdjacentHTML("beforeend", "<%= j render 'submitted_task', task: @task %>")
+} else {
+// passage de completed à uncompleted
+document.getElementById("task-list-<%= @task.id %>").remove();
+document.querySelector("div.uncompleted ul#task-list-<%= @task.category.title %>").insertAdjacentHTML("beforeend", "<%= j render 'submitted_task', task: @task %>")
+}

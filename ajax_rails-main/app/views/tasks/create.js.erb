@@ -1,0 +1,2 @@
+document.getElementById("task-list-<%= @task.category.title %>").insertAdjacentHTML("beforeend", "<%= j render 'submitted_task', task: @task %>");
+alert("le fichier JS est exécuté!");
