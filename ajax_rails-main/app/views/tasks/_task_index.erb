@@ -1,0 +1,10 @@
+<% category.each do |task|  %>
+  <li id="task-list-<%= task.id %>">
+    <%= task.title  %>
+    <% unless task.deadline.nil? %>
+      , to read: <%= task.deadline.strftime('%D')  %>
+    <% end %>
+    <%= button_to "Delete this task", task_path(task), class: "btn btn-danger" , method: :delete, remote: true %>
+    <%= check_box_tag :task_status, 1, task.status , data: { remote: true, url: task_path(task), params: { tag_id: "task-list-#{task.id }"}.to_param, method: "put" }%>
+  </li>
+<% end %>

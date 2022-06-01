@@ -1,0 +1,15 @@
+<h2> <%= email.object %> </h2>
+<p> <%= email.body %>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-6">
+      <%= button_to 'Supprimer', email_path(email), method: :delete, class:"btn btn-outline-danger", remote: true %>
+    </div>
+
+    <div class="col-6">
+      <%= button_to 'Marquer comme non-lu', email_path(email), method: :put, class:'btn btn-outline-primary', remote: true %>
+    </div>
+  </div>
+</div>

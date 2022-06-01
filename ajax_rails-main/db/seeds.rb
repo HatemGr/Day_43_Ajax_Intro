@@ -7,8 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+
+Category.destroy_all
+Email.destroy_all
+
 3.times do
-  my_category = Category.create(title: Faker::Book.genre)
+  title = Faker::Book.genre.gsub(" ","-")
+
+  my_category = Category.create(title: title)
   3.times do
     my_task = Task.new(title: Faker::Book.title,
                       deadline: Faker::Date.forward(23),
@@ -16,4 +22,8 @@ require 'faker'
     my_task.category = my_category
     my_task.save
   end
+end
+
+10.times do
+  Email.create(object: Faker::Game.title,body: Faker::Lorem.paragraph)
 end

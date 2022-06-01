@@ -1,0 +1,5 @@
+
+<tr id='email-<%=email.id%>' class='<% email_class(email) %>'>
+  <th class='<%= email_class(email) %>' scope="row" style="color:green;">NEW</th>
+  <td class='<%= email_class(email) %>' ><%=link_to email.object, email_path(email), remote: true, class:email_class(email) %></td>
+</tr>

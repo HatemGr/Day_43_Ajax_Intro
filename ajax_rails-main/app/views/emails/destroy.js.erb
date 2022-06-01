@@ -1,0 +1,5 @@
+console.log(document.getElementById("selected_mail"));
+console.log(document.getElementById("email-<%=@email.id%>"));
+
+document.getElementById("selected_mail").innerHTML = "<h2>Message supprimé</h2>";
+document.getElementById("email-<%=@email.id%>").remove();

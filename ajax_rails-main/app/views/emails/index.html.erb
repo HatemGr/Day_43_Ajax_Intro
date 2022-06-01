@@ -1,0 +1,5 @@
+<div class="mail-btn text-center mb-5">
+  <%= button_to "Recevoir un email", emails_path, class: "btn btn-success" , method: :post, remote: true %>
+</div>
+
+<%= render partial: 'email_list', locals: {emails: @emails}%>
